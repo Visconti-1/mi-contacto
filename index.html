@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 600px;
+        }
+
+        .form-section {
+            padding: 50px 40px;
+            background: #1e1e1e;
+        }
+
+        .info-section {
+            padding: 50px 40px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #e0e0e0;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #404040;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            background: #333;
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #888;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .contact-info .icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            margin-top: 40px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            background: rgba(52, 152, 219, 0.3);
+            border-color: #3498db;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .form-section,
+            .info-section {
+                padding: 30px 20px;
+            }
+        }
+
+        .success-message {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+            animation: slideDown 0.5s ease-out;
+            border: 1px solid #27ae60;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Comentarios en CSS para identificar secciones editables */
+        /* ========================================== */
+        /* EDITAR INFORMACIÓN PERSONAL AQUÍ ABAJO ⬇️ */
+        /* ========================================== */
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <!-- 📝 EDITAR TÍTULO Y SUBTÍTULO AQUÍ -->
+        <h1>Contacto</h1>
+        <p>Estoy disponible para colaboraciones y consultas profesionales.</p>
+    </div>
+
+    <div class="content">
+        <div class="form-section">
+            <div class="success-message" id="successMessage">
+                ¡Mensaje enviado exitosamente! Te responderé pronto.
+            </div>
+
+            <form id="contactForm" action="https://formspree.io/f/xanbkyvy" method="POST">
+                <div class="form-group">
+                    <label for="name">Nombre completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" placeholder="Describe tu consulta o propuesta..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Enviar mensaje
+                </button>
+            </form>
+        </div>
+
+        <div class="info-section">
+            <h2 style="margin-bottom: 30px; font-size: 2rem;">Información de contacto</h2>
+
+            <ul class="contact-info">
+                <!-- 📧 EDITAR TU EMAIL AQUÍ -->
+                <li>
+                    <div class="icon">📧</div>
+                    <div>
+                        <strong>Email:</strong><br>
+                        feste.visconti@gmail.com
+                    </div>
+                </li>
+                <!-- 📱 EDITAR TU TELÉFONO AQUÍ -->
+                <li>
+                    <div class="icon">📱</div>
+                    <div>
+                        <strong>Teléfono:</strong><br>
+                        +54 353 421 0278
+                    </div>
+                </li>
+                <!-- 📍 EDITAR TU UBICACIÓN AQUÍ -->
+                <li>
+                    <div class="icon">📍</div>
+                    <div>
+                        <strong>Ubicación:</strong><br>
+                        Villa Nueva, Cordoba, Argentina
+                    </div>
+                </li>
+                <!-- ⏰ EDITAR TU HORARIO AQUÍ -->
+                <li>
+                    <div class="icon">⏰</div>
+                    <div>
+                        <strong>Horario:</strong><br>
+                        Lun - Vie: 9:00 - 18:00
+                    </div>
+                </li>
+            </ul>
+
+            <!-- 🔗 EDITAR LINKS DE REDES SOCIALES AQUÍ -->
+            <div class="social-links">
+                <!-- LinkedIn: Cambia el # por tu URL de LinkedIn -->
+                <a href="https://www.linkedin.com/in/vi-buscema-visconti-74173137a/" target="_blank" title="LinkedIn">💼</a>
+
+                <!-- Instagram: Cambia el # por tu URL de Instagram -->
+                <a href="https://www.instagram.com/faustovisconti/" target="_blank" title="Instagram">📷</a>
+
+
+                <!-- WhatsApp: Cambia el número por el tuyo (formato internacional sin +) -->
+                <a href="https://wa.me/3534210278" target="_blank" title="WhatsApp">💬</a>
+
+                <!-- GitHub (opcional): Descomenta y edita si lo necesitas -->
+                <!-- <a href="https://github.com/tu-usuario" target="_blank" title="GitHub">💻</a> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
